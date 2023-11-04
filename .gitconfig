@@ -1,0 +1,12 @@
+[user]
+name = username
+email = username@example.com
+
+[color]
+ui = auto
+
+[core]
+editor = code --wait
+
+[diff]
+tool = vscode
