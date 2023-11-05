@@ -6,6 +6,7 @@
 	editor = code --wait
 	excludesfile =  ~/.git-custom/.gitignore
 	hooksPath = ~/.git-custom/hooks
+	pager = less -F
 
 [fetch]
 	prune = true
@@ -14,10 +15,29 @@
 	date = format:%d/%m/%Y %H:%M
 	abbrevCommit = true
 
+[push]
+	autoSetupRemote = true
+
+[branch]
+	autoSetupRebase = always
+
+[rerere]
+  enabled = true
+	autoupdate = false
+
+[help]
+	autoCorrect = prompt
+
+[gc]
+	rerereUnresolved = 21
+	rerereResolved = 21
+
 [alias]
-	back = "!f() { git reset HEAD~${1}; }; f"
+	back = reset HEAD~1
+	initrerere = rerere forget .
 	lo = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset %C(white dim)%an %ad%Creset'
-	s = status
+	s = status --short --branch
+	st = status
 	search = lo --all --grep
 	squash = "!f() { \
 		git reset --soft HEAD~${1}; \
@@ -25,4 +45,11 @@
 	}; f"
 
 [color "branch"]
-	current = green reverse bold
+  current = green reverse
+  local = green
+  remote = yellow
+
+[color "status"]
+  added = green bold
+  changed = yellow
+  untracked = cyan
