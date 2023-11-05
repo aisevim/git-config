@@ -1,12 +1,27 @@
 [user]
-name = username
-email = username@example.com
-
-[color]
-ui = auto
+	email = user@user.com
+	name = user
 
 [core]
-editor = code --wait
+	editor = code --wait
+	excludesfile =  ~/.gitignore_global
 
-[diff]
-tool = vscode
+[fetch]
+	prune = true
+
+[log]
+	date = format:%d/%m/%Y %H:%M
+	abbrevCommit = true
+
+[alias]
+	lo = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset %C(white dim)%an %ad%Creset'
+	search = lo --all --grep
+	squash = "!f() { \
+		git reset --soft HEAD~${1}; \
+		git commit --amend --no-edit; \
+	}; f"
+	s = status
+	back = reset HEAD~${1}
+
+[color "branch"]
+	current = green reverse bold
