@@ -22,7 +22,7 @@
 	autoSetupRebase = always
 
 [rerere]
-  enabled = true
+	enabled = true
 	autoupdate = false
 
 [help]
@@ -45,11 +45,11 @@
 	}; f"
 
 [color "branch"]
-  current = green reverse
-  local = green
-  remote = yellow
+	current = green reverse
+	local = green
+	remote = yellow
 
 [color "status"]
-  added = green bold
-  changed = yellow
-  untracked = cyan
+	added = green bold
+	changed = yellow
+	untracked = cyan
