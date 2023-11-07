@@ -25,6 +25,9 @@
 	enabled = true
 	autoupdate = false
 
+[submodule]
+	recurse = true
+
 [help]
 	autoCorrect = prompt
 
