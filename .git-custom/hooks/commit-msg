@@ -2,7 +2,7 @@
 
 commit_message_file=$1
 commit_message=$(cat "$commit_message_file")
-commit_regex="^((wip|Merge?.+)|(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|release)(\([-A-Za-z0-9_ ]+\))?!?: .+)"
+commit_regex="^(wip|Merge?.+|Revert?.+)|(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|release)(\([-A-Za-z0-9_ ]+\))?!?: .+"
 
 if [[ ! $commit_message =~ $commit_regex ]]; then
 	echo -e "\e[91mError: The commit message does not adhere to the expected format.\e[0m\n"
