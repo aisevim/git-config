@@ -38,10 +38,10 @@
 [alias]
 	back = reset HEAD~1
 	initrerere = rerere forget .
-	lo = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset %C(white dim)%an %ad%Creset'
+	l = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset %C(white dim)%an %ad%Creset'
 	s = status --short --branch
 	st = status
-	search = lo --all --grep
+	search = l --all --grep
 	squash = "!f() { \
 		git reset --soft HEAD~${1}; \
 		git commit --amend --no-edit; \
