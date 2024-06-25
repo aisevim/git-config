@@ -4,8 +4,6 @@
 
 [core]
 	editor = code --wait
-	excludesfile =  ~/.git-custom/.gitignore
-	hooksPath = ~/.git-custom/hooks
 	pager = less -F
 
 [fetch]
