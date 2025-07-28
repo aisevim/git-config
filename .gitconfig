@@ -6,9 +6,6 @@
 	editor = code --wait
 	pager = less -F
 
-[fetch]
-	prune = true
-
 [log]
 	date = format:%d/%m/%Y %H:%M
 	abbrevCommit = true
