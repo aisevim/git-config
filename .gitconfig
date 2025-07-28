@@ -29,6 +29,8 @@
 [gc]
 	rerereUnresolved = 21
 	rerereResolved = 21
+	reflogExpire = 180 days
+	reflogExpireUnreachable = 60 days
 
 [alias]
 	back = reset HEAD~1
