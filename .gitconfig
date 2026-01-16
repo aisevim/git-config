@@ -60,7 +60,7 @@
 	st = status
 	pushf = push --force-with-lease
 	nope = reset --keep HEAD@{1}
-	losted-commit = fsck --full --no-reflogs --unreachable --lost-found
+	lost-commit = fsck --full --no-reflogs --unreachable --lost-found
 
 [color]
   ui = auto
