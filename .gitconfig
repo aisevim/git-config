@@ -1,24 +1,45 @@
 [user]
 	email = user@user.com
-	name = user
+	name = Full Name
 
 [core]
 	editor = code --wait
-	pager = less -F
+	pager = delta
+	whitespace = -trailing-space
+	ignorecase = false
+
+[fetch]
+	prune = true
 
 [log]
 	date = format:%d/%m/%Y %H:%M
 	abbrevCommit = true
 
+[interactive]
+	diffFilter = delta --color-only
+
+[diff]
+	renames = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[mergetool]
+  keepBackup = false
+  keepTemporaries = false
+
 [push]
 	autoSetupRemote = true
+	followTags = true
 
 [branch]
 	autoSetupRebase = always
 
-[rerere]
-	enabled = true
-	autoupdate = false
+[fetch]
+  recurseSubmodules = on-demand
+
+[rebase]
+  autoStash = true
 
 [submodule]
 	recurse = true
@@ -27,29 +48,26 @@
 	autoCorrect = prompt
 
 [gc]
-	rerereUnresolved = 21
-	rerereResolved = 21
 	reflogExpire = 180 days
 	reflogExpireUnreachable = 60 days
 
 [alias]
+	edit-config = config --global --edit
 	back = reset HEAD~1
-	initrerere = rerere forget .
-	l = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %C(auto)%s%Creset %C(white dim)%an %ad%Creset'
+	l = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset%  %C(auto)%s%Creset %C(italic red)%an %C(dim yellow)%ad%Creset'
+	lo = log --oneline --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%<(75,trunc) %C(auto)%s%Creset%<(10,trunc) %C(italic red)%an %C(dim yellow)%ad%Creset %C(auto)%d%Creset'
 	s = status --short --branch
 	st = status
-	search = l --all --grep
-	squash = "!f() { \
-		git reset --soft HEAD~${1}; \
-		git commit --amend --no-edit; \
-	}; f"
+	pushf = push --force-with-lease
+	nope = reset --keep HEAD@{1}
+	losted-commit = fsck --full --no-reflogs --unreachable --lost-found
 
-[color "branch"]
-	current = green reverse
-	local = green
-	remote = yellow
+[color]
+  ui = auto
 
-[color "status"]
-	added = green bold
-	changed = yellow
-	untracked = cyan
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
+	hyperlinks = true
+	side-by-side = true
